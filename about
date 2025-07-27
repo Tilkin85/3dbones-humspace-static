@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - UCLA 3D Osteology Collection</title>
+<style>
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Navigation */
+.main-navigation {
+    background: #34495e;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #2c3e50;
+    border-bottom-color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+.main-content {
+    padding: 3rem 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    color: #5a6c7d;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Featured Sections - Updated for full-size images */
+.featured-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.section-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.section-card:hover .card-image {
+    transform: scale(1.02);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-description {
+    color: #5a6c7d;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Bottom Navigation */
+.bottom-navigation {
+    background: #f8f9fa;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.bottom-nav-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.progress-nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.progress-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.progress-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #3498db;
+}
+
+.copyright {
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design - COMPLETELY REWRITTEN */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block !important;
+    }
+    
+    .nav-list {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #2c3e50 !important;
+        flex-direction: column !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+        z-index: 9999 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .nav-list.show {
+        display: flex !important;
+    }
+    
+    .nav-item {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    .nav-link {
+        width: 100% !important;
+        padding: 1rem !important;
+        border-bottom: 1px solid #34495e !important;
+        border-left: none !important;
+        border-right: none !important;
+        text-align: left !important;
+        transform: none !important;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        transform: none !important;
+        border-bottom: 1px solid #34495e !important;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .featured-sections {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .progress-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+    }
+    
+    .main-content {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 2rem 1rem;
+    }
+    
+    .site-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .card-image-container {
+        height: 200px;
+    }
+    
+    .section-card {
+        min-height: 350px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="homepage-container fade-in">
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="site-title">UCLA 3D Osteology Collection</h1>
+        <p class="site-subtitle">Exploring Human Skeletal Anatomy in Three Dimensions</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-navigation">
+        <div class="nav-container">
+            <button class="nav-toggle" id="nav-toggle">Navigation Menu</button>
+            <ul class="nav-list" id="nav-list">
+                <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/about/" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/appendicular-skeletal/" class="nav-link">Appendicular Skeleton</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/axial-skeletal/" class="nav-link active">Axial Skeleton</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/whole-spine/" class="nav-link">Whole Spine</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/bone-identifiers-and-descriptions/" class="nav-link">Bone Identifiers</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/pathological-conditions/" class="nav-link">Pathological Conditions</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/data-visualizations/" class="nav-link">Data Visualizations</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/paired-collections/" class="nav-link">Paired Collections</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/historical-context-ethics/" class="nav-link">Historical Context</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/annotated-bibliography-ethics-in-osteology/" class="nav-link">Annotated Bibliography</a></li>
+                      <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/acknowledgements/" class="nav-link active">Acknowledgements</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/future-objectives/" class="nav-link">Future Objectives</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2 class="hero-title">About Our Project</h2>
+            <p class="hero-description">
+                Our 3D Scanning Project at UCLA is a pioneering interdisciplinary effort focused on advancing ethical standards in the study and documentation of human skeletal remains.
+            </p>
+        </section>
+
+        <!-- Featured Sections -->
+        <div class="featured-sections">
+            <div class="section-card">
+                <div class="card-image-container">
+                    <img src="https://3dbones.humspace.ucla.edu/wp-content/uploads/2025/06/file_00000000e51861f88563fdde548e5272.jpg" alt="3D Scanning Technology" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Ethical Innovation and Repatriation</h3>
+                    <p class="card-description">
+                        Our project promotes respect for cultural and spiritual values by reducing physical handling of remains and creating detailed digital and physical replicas to support potential repatriation. Through the use of advanced 3D scanning and printing technologies, we aim to balance scientific inquiry with cultural sensitivity, ensuring that human remains are treated with the dignity they deserve. By collaborating with descendant communities and incorporating their perspectives and wishes, we foster a more inclusive and accountable approach to bioarchaeological research. This commitment to ethical innovation underscores our dedication to upholding the principles of repatriation and decolonizing scientific practices, creating pathways for descendant communities to reconnect with their ancestral heritage.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="card-image-container">
+                    <img src="https://3dbones.humspace.ucla.edu/wp-content/uploads/2025/06/file_0000000020f461f897fa9a454260001c.jpg" alt="Interdisciplinary Collaboration" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Interdisciplinary Collaboration</h3>
+                    <p class="card-description">
+                        By integrating the fields of anthropology, digital humanities, archaeology, and radiology, we create a robust, multifaceted approach to the study of human remains. Each discipline brings a unique lens: anthropology provides cultural and biological context, archaeology situates remains within their historical and material settings, digital humanities offer tools for visualization and public engagement, and radiology enables non-invasive analysis through advanced imaging techniques such as micro-CT and X-rays. This collaborative framework not only enhances our scientific understanding but also ensures a more ethical and respectful treatment of human remains. It allows us to document, interpret, and share these findings in a way that prioritizes accuracy, accessibility, and cultural sensitivity—recognizing that these individuals were once living people with identities, histories, and communities
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="card-image-container">
+                    <img src="https://3dbones.humspace.ucla.edu/wp-content/uploads/2025/06/file_00000000265861f8b1f496615f171e46.jpg" alt="Advanced Scanning Equipment" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Advanced Scanning Technologies</h3>
+                    <p class="card-description">
+                        High-resolution 3D scanners, micro-computed tomography (micro-CT) systems, and photogrammetry setups play a critical role in modern osteological and archaeological research by capturing skeletal details with exceptional precision. These technologies allow researchers to generate detailed digital replicas of bones, preserving anatomical features down to the sub-millimeter level. Micro-CT scanning reveals internal structures such as trabecular patterns and pathological markers without damaging the original specimen, while 3D surface scanners and photogrammetry provide accurate external models suitable for measurement, analysis, and educational use. The resulting digital archives not only support rigorous scientific study but also reduce the need for repeated handling of fragile remains, promoting both conservation and ethical stewardship. These tools open new possibilities for remote collaboration, public outreach, and virtual repatriation, transforming how we document and share knowledge about the human past.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="card-image-container">
+                    <img src="https://3dbones.humspace.ucla.edu/wp-content/uploads/2025/06/file_000000000d34623090a0af10a6d955c2.jpg" alt="Educational Training" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Enhancing Educational Curriculum</h3>
+                    <p class="card-description">
+                        We integrate ethical practices into training for future anthropologists, providing hands-on learning with 3D printed skeletal replicas. This approach reduces the need for handling original human remains while still offering a tactile learning experience, fostering a respect for cultural heritage, and encouraging critical thinking about the historical and social contexts of skeletal collections. By incorporating discussions about provenance, colonial histories, and the ethics of osteological research, we equip students with the tools to engage thoughtfully and responsibly with the material they study, ensuring that future research respects the dignity of the individuals represented in these collections.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="card-image-container">
+                    <img src="https://3dbones.humspace.ucla.edu/wp-content/uploads/2025/06/file_0000000062806230b9a191c144f81822.jpg" alt="Future Vision" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Future Vision</h3>
+                    <p class="card-description">
+                      Our project promotes respect for cultural and spiritual values by reducing physical handling of remains and creating detailed digital and physical replicas to support potential repatriation. Through the use of advanced 3D scanning and printing technologies, we aim to balance scientific inquiry with cultural sensitivity, ensuring that human remains are treated with the dignity they deserve. By collaborating with descendant communities and incorporating their perspectives and wishes, we foster a more inclusive and accountable approach to bioarchaeological research. This commitment to ethical innovation underscores our dedication to upholding the principles of repatriation and decolonizing scientific practices, creating pathways for descendant communities to reconnect with their ancestral heritage.
+
+With more time and resources, this project could expand into community-engaged research protocols, developing best practices for descendant community consultation, and creating standardized ethical frameworks for digital anthropology. Our plans include printing high-quality 3D replicas to facilitate collaborative decision-making with descendant communities, enabling them to access and interpret the data on their own terms. Additionally, leveraging AI with these 3D scans—automating osteometric measurements in Python and Blender—would allow us to systematically analyze linear distances, surface areas, and volumes. This approach would generate predictive models for osteological pairings, enhancing precision, reproducibility, and ethical stewardship of human remains.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-navigation">
+        <p class="bottom-nav-title">Continue Exploring</p>
+        <div class="progress-nav">
+            <a href="https://3dbones.humspace.ucla.edu/" class="progress-button">Previous: Home</a>
+            <a href="https://3dbones.humspace.ucla.edu/appendicular-skeletal/" class="progress-button">Next: Appendicular Skeleton</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">UCLA 3D Osteology Collection - An Educational Resource</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">UCLA Anthropology</a>
+                <a href="#" class="footer-link">Resources</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <p class="copyright">© 2025 UCLA 3D Osteology Collection. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+
+<!-- JavaScript for navigation and animations -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navList = document.getElementById('nav-list');
+
+    // Debug: Check if elements exist
+    console.log('Nav toggle:', navToggle);
+    console.log('Nav list:', navList);
+    console.log('Window width:', window.innerWidth);
+
+    // Force mobile layout if screen is small
+    function checkMobileLayout() {
+        if (window.innerWidth <= 768) {
+            navToggle.style.display = 'block';
+            navList.style.display = 'none'; // Start hidden
+            navList.style.position = 'absolute';
+            navList.style.top = '100%';
+            navList.style.left = '0';
+            navList.style.right = '0';
+            navList.style.flexDirection = 'column';
+            navList.style.backgroundColor = '#2c3e50';
+            navList.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            navList.style.zIndex = '9999';
+            navToggle.classList.remove('active'); // Remove active state
+            console.log('Mobile layout applied - menu hidden');
+        } else {
+            navToggle.style.display = 'none';
+            navList.style.display = 'flex';
+            navList.style.position = 'static';
+            navList.style.flexDirection = 'row';
+            navList.style.backgroundColor = '';
+            navList.style.boxShadow = '';
+            navList.style.flexWrap = 'wrap';
+            navList.style.justifyContent = 'center';
+            console.log('Desktop layout applied');
+        }
+    }
+
+    // Apply layout on load and resize
+    checkMobileLayout();
+    window.addEventListener('resize', checkMobileLayout);
+
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', function() {
+            console.log('Toggle clicked');
+            const isHidden = navList.style.display === 'none' || navList.style.display === '';
+            
+            if (isHidden) {
+                navList.style.display = 'flex';
+                navToggle.classList.add('active');
+                console.log('Menu shown');
+            } else {
+                navList.style.display = 'none';
+                navToggle.classList.remove('active');
+                console.log('Menu hidden');
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!navToggle.contains(event.target) && !navList.contains(event.target)) {
+                if (window.innerWidth <= 768) {
+                    navList.style.display = 'none';
+                    navToggle.classList.remove('active');
+                }
+            }
+        });
+    }
+
+    const sectionCards = document.querySelectorAll('.section-card');
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    sectionCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+</script>
+</body>
+</html>
