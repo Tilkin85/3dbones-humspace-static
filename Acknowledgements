@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acknowledgements - UCLA 3D Osteology Collection</title>
+    <style>
+        /* UCLA 3D Osteology Website - Unified Styles */
+        :root {
+            --ucla-blue: #2774AE;
+            --ucla-blue-darker: #1a5a8e;
+            --ucla-gold: #FFD100;
+            --light-gray: #F2F2F2;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        .header {
+            background: linear-gradient(135deg, var(--ucla-blue) 0%, #0073CF 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .site-title {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .site-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Navigation styles */
+        .main-navigation {
+            background-color: var(--ucla-blue-darker);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+
+        .nav-toggle:after {
+            content: '☰';
+            position: absolute;
+            right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--ucla-blue);
+            border-bottom-color: var(--ucla-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 2.8rem;
+            color: var(--ucla-blue);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* Content sections */
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--ucla-blue);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--ucla-gold);
+            display: inline-block;
+        }
+
+        .acknowledgment-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .acknowledgment-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Person highlights */
+        .person-name {
+            color: var(--ucla-blue);
+            font-weight: 700;
+        }
+
+        .institution-name {
+            color: var(--ucla-blue);
+            font-weight: 600;
+        }
+
+        /* Collaborators section */
+        .collaborator-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--ucla-gold);
+            transition: all 0.3s ease;
+        }
+
+        .collaborator-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .collaborator-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .collaborator-name {
+            font-size: 1.3rem;
+            color: var(--ucla-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .collaborator-credentials {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .collaborator-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Quote styling */
+        .quote-highlight {
+            background: rgba(39, 116, 174, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: linear-gradient(135deg, var(--ucla-blue-darker) 0%, var(--ucla-blue) 100%);
+            color: var(--white);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            color: var(--ucla-gold);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Back to collection button */
+        .back-to-collection {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--ucla-blue), var(--ucla-blue-darker));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 116, 174, 0.4);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+
+            .site-subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--ucla-blue-darker);
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 9999;
+            }
+
+            .nav-list.show {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 1rem;
+                text-align: left;
+                border-bottom: none;
+                transform: none;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background-color: var(--ucla-blue);
+                transform: none;
+                border-bottom: none;
+                border-left: 4px solid var(--ucla-gold);
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .collaborator-card {
+                padding: 1.5rem;
+            }
+
+            .acknowledgment-text,
+            .collaborator-description {
+                text-align: left;
+            }
+        }
+
+        /* Animation for page transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container fade-in">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="site-title">UCLA 3D Osteology Collection</h1>
+            <p class="site-subtitle">Exploring Human Skeletal Anatomy in Three Dimensions</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-navigation">
+            <div class="nav-container">
+                <button class="nav-toggle" id="nav-toggle">Navigation Menu</button>
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/about/" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/appendicular-skeletal/" class="nav-link">Appendicular Skeleton</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/axial-skeletal/" class="nav-link">Axial Skeleton</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/whole-spine/" class="nav-link">Whole Spine</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/bone-identifiers-and-descriptions/" class="nav-link">Bone Identifiers</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/pathological-conditions/" class="nav-link">Pathological Conditions</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/data-visualizations/" class="nav-link">Data Visualizations</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/paired-collections/" class="nav-link">Paired Collections</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/historical-context-ethics/" class="nav-link">Historical Context</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/annotated-bibliography-ethics-in-osteology/" class="nav-link">Annotated Bibliography</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/acknowledgements/" class="nav-link active">Acknowledgements</a></li>
+                    <li class="nav-item"><a href="https://3dbones.humspace.ucla.edu/future-objectives/" class="nav-link">Future Objectives</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Acknowledgements</h1>
+
+            <!-- Acknowledgments Section -->
+          <section class="content-section">
+    <h2 class="section-title">Acknowledgments</h2>
+
+    <p class="acknowledgment-text">
+        I would first like to extend my deepest gratitude to <span class="person-name">Dr. Jennifer Rashidi</span> of <span class="institution-name">UCLA</span>. Over the past two years, Dr. Rashidi has served as both a mentor and advisor, guiding my academic and research journey in osteology and ethical anthropology. It was through her courses and ongoing support that I discovered a profound passion for the ethical treatment of human remains and the integration of digital technologies in anthropological research. Her expertise, encouragement, and commitment to rigorous, respectful scholarship have fundamentally shaped my academic trajectory, and for that, I am sincerely grateful.
+    </p>
+
+    <p class="acknowledgment-text">
+        I would also like to express my sincere appreciation to <span class="person-name">Dr. Sabo</span> of the <span class="institution-name">UCLA Digital Humanities Program</span>. Dr. Sabo taught me the foundational tools that allowed me to conceptualize and build this website. Under his guidance, I learned to apply a wide range of digital techniques—including HTML, CSS, JavaScript, Leaflet, Timeline JS, Google Ngram, and GitHub—to digitize and ethically disseminate humanities research. His teaching empowered me to think critically about accessibility, user engagement, and ethical storytelling in digital formats.
+    </p>
+
+    <p class="acknowledgment-text">
+        I am also deeply grateful to <span class="person-name">Doug Daniels</span> at the <span class="institution-name">Lux Lab in the Young Research Library at UCLA</span>. Doug provided essential technical training and access to high-resolution 3D scanners and photogrammetry software, which made it possible to carry out the 3D scanning and data visualization components of this project. His support and technical insight were invaluable in making this work possible.
+    </p>
+
+    <p class="acknowledgment-text">
+        Special thanks are due to <span class="institution-name">UCLA</span> as an institution for fostering a rich interdisciplinary environment where technology, ethics, and scholarship intersect. I am particularly appreciative of the support provided by the <span class="institution-name">Departments of Anthropology and Digital Humanities</span>, and the <span class="institution-name">Cotsen Institute of Archaeology</span>. These departments offered the intellectual infrastructure, mentorship, and equipment that allowed this research to thrive.
+    </p>
+</section>
+
+
+            <!-- Collaborators Section -->
+            <section class="content-section">
+                <h2 class="section-title">Collaborators</h2>
+
+                <div class="collaborator-card">
+                    <h3 class="collaborator-name">Alex Muck</h3>
+                    <p class="collaborator-credentials">B.A. Anthropology, UCLA Class of 2024</p>
+                    <p class="collaborator-description">
+                        Currently pursuing graduate studies in Biological Anthropology at the University of Cambridge, Alex has been more than just a collaborator—he has been a mentor, peer, and critical sounding board. His guidance and feedback were instrumental in helping me refine my research questions and develop the technical skills required for conducting high-quality osteological analysis and digital reconstruction. His contributions greatly enriched the quality and depth of this project.
+                    </p>
+                </div>
+
+                <div class="collaborator-card">
+                    <h3 class="collaborator-name">Askyla Daphne</h3>
+                    <p class="collaborator-credentials">B.A. Anthropology, UCLA Class of 2025</p>
+                    <p class="collaborator-description">
+                        Working alongside Askyla in the osteology lab was an invaluable experience. Her efforts in helping develop and test visual pair-matching methods for reticulating human remains significantly advanced our shared understanding of ethical reconstruction practices. Her attention to detail and collaborative spirit enhanced both the process and outcomes of our research.
+                    </p>
+                </div>
+
+                <div class="collaborator-card">
+                    <h3 class="collaborator-name">Ayumi Escalate</h3>
+                    <p class="collaborator-credentials">UCLA Osteology Lab Collaborator</p>
+                    <p class="collaborator-description">
+                        Collaborating with Ayumi during the rearticulation of spinal columns offered a hands-on perspective that deepened my understanding of skeletal anatomy and its educational and ethical implications. Her precise and methodical approach to reassembly contributed significantly to our lab's overall efforts in ethical osteological research.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Back to Collection -->
+            <div class="back-to-collection">
+                <a href="https://3dbones.humspace.ucla.edu/" class="back-button">
+                    ← Back to 3D Collection
+                </a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">UCLA 3D Osteology Collection - An Educational Resource</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">UCLA Anthropology</a>
+                    <a href="#" class="footer-link">Resources</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <p class="copyright">© 2025 UCLA 3D Osteology Collection. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile navigation toggle
+            const navToggle = document.getElementById('nav-toggle');
+            const navList = document.getElementById('nav-list');
+
+            if (navToggle && navList) {
+                navToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navList.classList.toggle('show');
+                    
+                    if (navList.classList.contains('show')) {
+                        navToggle.innerHTML = 'Close Menu <span style="position: absolute; right: 1rem;">✕</span>';
+                    } else {
+                        navToggle.innerHTML = 'Navigation Menu <span style="position: absolute; right: 1rem;">☰</span>';
+                    }
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navToggle.contains(e.target) && !navList.contains(e.target)) {
+                        navList.classList.remove('show');
+                        navToggle.innerHTML = 'Navigation Menu <span style="position: absolute; right: 1rem;">☰</span>';
+                    }
+                });
+
+                // Close menu when clicking on a nav link (mobile)
+                const navLinks = navList.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 768) {
+                            navList.classList.remove('show');
+                            navToggle.innerHTML = 'Navigation Menu <span style="position: absolute; right: 1rem;">☰</span>';
+                        }
+                    });
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        navList.classList.remove('show');
+                        navToggle.innerHTML = 'Navigation Menu <span style="position: absolute; right: 1rem;">☰</span>';
+                    }
+                });
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animate content sections
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+                observer.observe(section);
+            });
+
+            // Animate collaborator cards
+            const collaboratorCards = document.querySelectorAll('.collaborator-card');
+            collaboratorCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
